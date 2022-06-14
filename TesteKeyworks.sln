@@ -10,9 +10,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BB4B948E-F
 		docs\README.md = docs\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contextos", "Contextos", "{925C4D4E-170D-4C99-A3B7-7DA66CBD7F54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cadastros", "Cadastros", "{36D4438A-DEE8-41E0-B62D-FE7684D124B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Dominios", "2-Dominios", "{26D32CB9-D49B-4A09-BC90-76140A13FBA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteKeyworks.Cadastros.Dominios", "src\TesteKeyworks.Cadastros.Dominios\TesteKeyworks.Cadastros.Dominios.csproj", "{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{925C4D4E-170D-4C99-A3B7-7DA66CBD7F54} = {5170B22A-F1E5-412D-919A-0342EEDA37F7}
+		{36D4438A-DEE8-41E0-B62D-FE7684D124B8} = {925C4D4E-170D-4C99-A3B7-7DA66CBD7F54}
+		{26D32CB9-D49B-4A09-BC90-76140A13FBA0} = {36D4438A-DEE8-41E0-B62D-FE7684D124B8}
+		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2} = {26D32CB9-D49B-4A09-BC90-76140A13FBA0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCB9ED9D-82D0-4C46-A86D-8D9D1585EED8}
