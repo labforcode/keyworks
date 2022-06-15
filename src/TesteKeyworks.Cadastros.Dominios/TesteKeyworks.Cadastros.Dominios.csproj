@@ -14,4 +14,9 @@
     <NoWarn>1701;1702;8618</NoWarn>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\Clientes\" />
+    <Folder Include="Interfaces\Materiais\" />
+  </ItemGroup>
+
 </Project>

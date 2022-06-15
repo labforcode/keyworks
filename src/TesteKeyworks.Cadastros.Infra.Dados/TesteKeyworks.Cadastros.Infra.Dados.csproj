@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositorios\Clientes\" />
+    <Folder Include="Repositorios\Materiais\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TesteKeyworks.Cadastros.Dominios\TesteKeyworks.Cadastros.Dominios.csproj" />
+  </ItemGroup>
+
 </Project>
