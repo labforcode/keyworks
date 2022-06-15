@@ -16,7 +16,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cadastros", "Cadastros", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Dominios", "2-Dominios", "{26D32CB9-D49B-4A09-BC90-76140A13FBA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteKeyworks.Cadastros.Dominios", "src\TesteKeyworks.Cadastros.Dominios\TesteKeyworks.Cadastros.Dominios.csproj", "{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteKeyworks.Cadastros.Dominios", "src\TesteKeyworks.Cadastros.Dominios\TesteKeyworks.Cadastros.Dominios.csproj", "{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infra", "3-Infra", "{A6235921-DC0F-4AD4-A3EB-82F120C55CDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1-Dados", "3.1-Dados", "{A6F9C81F-65BD-476C-B3F7-718983FECFC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2-CrossCutting", "3.2-CrossCutting", "{E6774E3C-AFAB-4524-B908-4A930973C94E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteKeyworks.Cadastros.Infra.Dados", "src\TesteKeyworks.Cadastros.Infra.Dados\TesteKeyworks.Cadastros.Infra.Dados.csproj", "{65B126D5-9A0C-419C-ADC3-A26FE48E5AC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteKeyworks.Cadastros.Infra.CrossCutting", "src\TesteKeyworks.Cadastros.Infra.CrossCutting\TesteKeyworks.Cadastros.Infra.CrossCutting.csproj", "{21C95166-D2A5-4F33-9D0C-3CBB107B8B6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +38,14 @@ Global
 		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B126D5-9A0C-419C-ADC3-A26FE48E5AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B126D5-9A0C-419C-ADC3-A26FE48E5AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B126D5-9A0C-419C-ADC3-A26FE48E5AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B126D5-9A0C-419C-ADC3-A26FE48E5AC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21C95166-D2A5-4F33-9D0C-3CBB107B8B6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21C95166-D2A5-4F33-9D0C-3CBB107B8B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C95166-D2A5-4F33-9D0C-3CBB107B8B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21C95166-D2A5-4F33-9D0C-3CBB107B8B6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +55,11 @@ Global
 		{36D4438A-DEE8-41E0-B62D-FE7684D124B8} = {925C4D4E-170D-4C99-A3B7-7DA66CBD7F54}
 		{26D32CB9-D49B-4A09-BC90-76140A13FBA0} = {36D4438A-DEE8-41E0-B62D-FE7684D124B8}
 		{17ABCAE1-4974-4EEF-B61E-A2B6317646F2} = {26D32CB9-D49B-4A09-BC90-76140A13FBA0}
+		{A6235921-DC0F-4AD4-A3EB-82F120C55CDF} = {36D4438A-DEE8-41E0-B62D-FE7684D124B8}
+		{A6F9C81F-65BD-476C-B3F7-718983FECFC0} = {A6235921-DC0F-4AD4-A3EB-82F120C55CDF}
+		{E6774E3C-AFAB-4524-B908-4A930973C94E} = {A6235921-DC0F-4AD4-A3EB-82F120C55CDF}
+		{65B126D5-9A0C-419C-ADC3-A26FE48E5AC8} = {A6F9C81F-65BD-476C-B3F7-718983FECFC0}
+		{21C95166-D2A5-4F33-9D0C-3CBB107B8B6E} = {E6774E3C-AFAB-4524-B908-4A930973C94E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCB9ED9D-82D0-4C46-A86D-8D9D1585EED8}
