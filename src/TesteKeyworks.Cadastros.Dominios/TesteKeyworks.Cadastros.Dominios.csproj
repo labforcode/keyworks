@@ -14,9 +14,4 @@
     <NoWarn>1701;1702;8618</NoWarn>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="ValueObjects\Telefones\" />
-    <Folder Include="ValueObjects\Responsaveis\" />
-  </ItemGroup>
-
 </Project>
