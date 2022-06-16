@@ -15,6 +15,6 @@ namespace TesteKeyworks.Cadastros.Dominios.Entidades.Materiais
 
         public string Descricao { get; private set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }
