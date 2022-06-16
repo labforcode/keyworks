@@ -37,30 +37,36 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.Clientes
                    .HasColumnName("tipo_cliente")
                    .IsRequired();
 
-            builder.Property(c => c.Responsavel.Nome)
-                   .HasColumnName("responsavel_nome")
-                  .HasColumnType("varchar(140)")
-                   .IsRequired();
+            builder.OwnsOne(c => c.Responsavel, r => 
+            {
+                r.Property(c => c.Nome)
+                 .HasColumnName("responsavel_nome")
+                 .HasColumnType("varchar(140)")
+                 .IsRequired();
 
-            builder.Property(c => c.Responsavel.Email)
-                   .HasColumnName("responsavel_email")
-                  .HasColumnType("varchar(80)")
-                   .IsRequired();
+                r.Property(c => c.Email)
+                 .HasColumnName("responsavel_email")
+                 .HasColumnType("varchar(80)")
+                 .IsRequired();
+            });
 
-            builder.Property(c => c.Telefone.DDI)
-                   .HasColumnName("telefone_ddi")
-                   .HasColumnType("varchar(2)")
-                   .IsRequired();
+            builder.OwnsOne(c => c.Telefone, t => 
+            {
+                t.Property(c => c.DDI)
+                       .HasColumnName("telefone_ddi")
+                       .HasColumnType("varchar(2)")
+                       .IsRequired();
 
-            builder.Property(c => c.Telefone.DDD)
-                   .HasColumnName("telefone_ddd")
-                   .HasColumnType("varchar(3)")
-                   .IsRequired();
+                t.Property(c => c.DDD)
+                       .HasColumnName("telefone_ddd")
+                       .HasColumnType("varchar(3)")
+                       .IsRequired();
 
-            builder.Property(c => c.Telefone.Numero)
-                   .HasColumnName("telefone_numero")
-                   .HasColumnType("varchar(10)")
-                   .IsRequired();
+                t.Property(c => c.Numero)
+                       .HasColumnName("telefone_numero")
+                       .HasColumnType("varchar(10)")
+                       .IsRequired();
+            });
 
             builder.HasMany(c => c.Materiais)
                     .WithMany(c => c.Clientes)
