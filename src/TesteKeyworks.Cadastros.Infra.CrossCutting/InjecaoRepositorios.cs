@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using TesteKeyworks.Cadastros.Dominios.Interfaces;
 using TesteKeyworks.Cadastros.Dominios.Interfaces.Repositorios.Clientes;
 using TesteKeyworks.Cadastros.Dominios.Interfaces.Repositorios.Materiais;
-using TesteKeyworks.Cadastros.Infra.Dados.Repositorios;
 using TesteKeyworks.Cadastros.Infra.Dados.Repositorios.Clientes;
 using TesteKeyworks.Cadastros.Infra.Dados.Repositorios.Materiais;
 

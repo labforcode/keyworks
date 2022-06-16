@@ -8,6 +8,7 @@ namespace TesteKeyworks.Cadastros.Infra.CrossCutting
         public static void RegistrarInjecaoDependencia(IServiceCollection services, IConfiguration configuration)
         {
             InjecaoDbKeyworks.InjetarContexto(services, configuration);
+            InjecaoServicos.InjetarServicos(services);
             InjecaoRepositorios.InjetarRepositorios(services);
             InjecaoInfra.InjetarInfra(services);
         }
