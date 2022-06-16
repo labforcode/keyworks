@@ -32,6 +32,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{8448FB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteKeyworks.WebApp.MVC", "src\TesteKeyworks.WebApp.MVC\TesteKeyworks.WebApp.MVC.csproj", "{D169ABE8-FA19-4761-A049-EE4EF7E7B082}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Servicos", "1-Servicos", "{9D734E1E-121B-4B87-ACE5-187E5C17CD19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteKeyworks.Cadastros.Servicos", "src\TesteKeyworks.Cadastros.Servicos\TesteKeyworks.Cadastros.Servicos.csproj", "{9A770390-B8A6-4534-81D4-01DCA2DF9252}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +58,10 @@ Global
 		{D169ABE8-FA19-4761-A049-EE4EF7E7B082}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D169ABE8-FA19-4761-A049-EE4EF7E7B082}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D169ABE8-FA19-4761-A049-EE4EF7E7B082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A770390-B8A6-4534-81D4-01DCA2DF9252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A770390-B8A6-4534-81D4-01DCA2DF9252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A770390-B8A6-4534-81D4-01DCA2DF9252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A770390-B8A6-4534-81D4-01DCA2DF9252}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,8 @@ Global
 		{21C95166-D2A5-4F33-9D0C-3CBB107B8B6E} = {E6774E3C-AFAB-4524-B908-4A930973C94E}
 		{8448FB29-292D-49E6-BD75-73F0B102BD74} = {5170B22A-F1E5-412D-919A-0342EEDA37F7}
 		{D169ABE8-FA19-4761-A049-EE4EF7E7B082} = {8448FB29-292D-49E6-BD75-73F0B102BD74}
+		{9D734E1E-121B-4B87-ACE5-187E5C17CD19} = {36D4438A-DEE8-41E0-B62D-FE7684D124B8}
+		{9A770390-B8A6-4534-81D4-01DCA2DF9252} = {9D734E1E-121B-4B87-ACE5-187E5C17CD19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCB9ED9D-82D0-4C46-A86D-8D9D1585EED8}
