@@ -11,6 +11,8 @@
             Numero = numero;
         }
 
+        protected Telefone(){ }
+
         public string DDI { get; private set; }
 
         public string DDD { get; private set; }
