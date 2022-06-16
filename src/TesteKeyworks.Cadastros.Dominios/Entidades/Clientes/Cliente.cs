@@ -1,4 +1,5 @@
-﻿using TesteKeyworks.Cadastros.Dominios.Entidades.Materiais;
+﻿using TesteKeyworks.Cadastros.Dominios.Core.Notificacoes;
+using TesteKeyworks.Cadastros.Dominios.Entidades.Materiais;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Responsaveis;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
 
@@ -51,49 +52,26 @@ namespace TesteKeyworks.Cadastros.Dominios.Entidades.Clientes
 
         public void AdicionarMaterial(Material material)
         {
-            // retornar um domain exception
-            if (_materiais.Exists(w => w.Codigo == material.Codigo) == false) return;
+            if (_materiais.Exists(w => w.Codigo == material.Codigo)) Notificacao.RegistrarNotificacao($"{material.Descricao} já vinculado ao cliente, verifique!");
 
             _materiais.Add(material);
         }
 
         public void RemoverMaterial(Material material)
         {
-            // retornar um domain exception
-            if (_materiais.Exists(w => w.Codigo == material.Codigo) == false) return;
+            if (_materiais.Exists(w => w.Codigo == material.Codigo) == false) Notificacao.RegistrarNotificacao($"{material.Descricao} não está vinculado ao cliente, verifique!");
 
             _materiais.Remove(material);
         }
 
         public void AtualizarMaterial(Material material)
         {
-            // retornar um domain exception
-            if (_materiais.Exists(w => w.Codigo == material.Codigo) == false) return;
+            if (_materiais.Exists(w => w.Codigo == material.Codigo) == false) Notificacao.RegistrarNotificacao($"{material.Descricao} não está vinculado ao cliente, verifique!");
 
             var mtr = _materiais.FirstOrDefault(w => w.Codigo == material.Codigo);
             if (mtr != null) _materiais.Remove(mtr);
 
             _materiais.Add(material);
-        }
-
-        public void AdicionarResponsavel(Responsavel responsavel)
-        {
-
-        }
-
-        public void AtualizarResponsavel(Responsavel responsavel)
-        {
-
-        }
-
-        public void AdicionarTelefone(Telefone telefone)
-        {
-
-        }
-
-        public void AtualizarTelefone(Telefone telefone)
-        {
-
         }
     }
 }

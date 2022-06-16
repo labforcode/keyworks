@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TesteKeyworks.Cadastros.Dominios.Core\TesteKeyworks.Cadastros.Dominios.Core.csproj" />
     <ProjectReference Include="..\TesteKeyworks.Cadastros.Dominios\TesteKeyworks.Cadastros.Dominios.csproj" />
     <ProjectReference Include="..\TesteKeyworks.Cadastros.Infra.Dados\TesteKeyworks.Cadastros.Infra.Dados.csproj" />
     <ProjectReference Include="..\TesteKeyworks.Cadastros.Servicos\TesteKeyworks.Cadastros.Servicos.csproj" />
