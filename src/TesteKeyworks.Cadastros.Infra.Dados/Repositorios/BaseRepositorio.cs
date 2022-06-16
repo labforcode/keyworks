@@ -1,22 +1,40 @@
-﻿using TesteKeyworks.Cadastros.Dominios.Interfaces.Repositorios;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Npgsql;
+using System.Data;
+using TesteKeyworks.Cadastros.Dominios.Interfaces.Repositorios;
+using TesteKeyworks.Cadastros.Infra.Dados.Contextos;
 
 namespace TesteKeyworks.Cadastros.Infra.Dados.Repositorios
 {
     public class BaseRepositorio<T> : IBaseRepositorio<T> where T : class
     {
-        public void Add(T t)
+        protected DbKeyworks Context;
+        private readonly DbSet<T> _dbSet;
+        private readonly string _connectionStrings;
+
+        public IDbConnection Connection => new NpgsqlConnection(_connectionStrings);
+
+        public BaseRepositorio(IConfiguration configuration, DbKeyworks context)
         {
-            throw new NotImplementedException();
+            Context = context;
+            _dbSet = context.Set<T>();
+            _connectionStrings = configuration.GetConnectionString("dbkeyworks");
         }
 
-        public void Delete(T t)
+        public void Add(T t)
         {
-            throw new NotImplementedException();
+            _dbSet.Add(t);
         }
 
         public void Update(T t)
         {
-            throw new NotImplementedException();
+            _dbSet.Update(t);
+        }
+
+        public void Delete(T t)
+        {
+            _dbSet.Remove(t);
         }
     }
 }
