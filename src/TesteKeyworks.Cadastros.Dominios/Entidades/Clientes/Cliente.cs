@@ -71,7 +71,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Entidades.Clientes
             if (_materiais.Exists(w => w.Codigo == material.Codigo) == false) return;
 
             var mtr = _materiais.FirstOrDefault(w => w.Codigo == material.Codigo);
-            if(mtr != null) _materiais.Remove(mtr);
+            if (mtr != null) _materiais.Remove(mtr);
 
             _materiais.Add(material);
         }
