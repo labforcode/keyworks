@@ -6,11 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\Clientes\" />
-    <Folder Include="DTOs\Materiais\" />
-    <Folder Include="ViewModels\Clientes\" />
-    <Folder Include="ViewModels\Materiais\" />
-  </ItemGroup>
-
 </Project>
