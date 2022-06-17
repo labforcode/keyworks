@@ -18,4 +18,8 @@
     <ProjectReference Include="..\TesteKeyworks.Cadastros.Dominios.Core\TesteKeyworks.Cadastros.Dominios.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.0.3" />
+  </ItemGroup>
+
 </Project>
