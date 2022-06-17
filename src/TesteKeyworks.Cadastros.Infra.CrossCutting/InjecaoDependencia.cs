@@ -9,6 +9,7 @@ namespace TesteKeyworks.Cadastros.Infra.CrossCutting
         {
             InjecaoDbKeyworks.InjetarContexto(services, configuration);
             InjecaoServicos.InjetarServicos(services);
+            InjecaoComandos.InjetarComandos(services);
             InjecaoRepositorios.InjetarRepositorios(services);
             InjecaoInfra.InjetarInfra(services);
         }
