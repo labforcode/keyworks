@@ -1,8 +1,8 @@
 ﻿namespace TesteKeyworks.Cadastros.Dominios.Comandos.Materiais.Acoes
 {
-    public class MaterialExclusao : MaterialComando
+    public class ComandoExclusaoMaterial : ComandoMaterial
     {
-        public MaterialExclusao(int codigo)
+        public ComandoExclusaoMaterial(int codigo)
         {
             Codigo = codigo;
         }

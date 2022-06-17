@@ -2,7 +2,7 @@
 
 namespace TesteKeyworks.Cadastros.Dominios.Comandos.Materiais
 {
-    public abstract class MaterialComando : Comando
+    public abstract class ComandoMaterial : Comando
     {
         public int Codigo { get; protected set; }
 

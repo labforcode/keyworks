@@ -4,9 +4,9 @@ using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
 
 namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
 {
-    public class ClienteAtualizacao : ClienteComando
+    public class ComandoAtualizacaoCliente : ComandoCliente
     {
-        public ClienteAtualizacao(int codigo,
+        public ComandoAtualizacaoCliente(int codigo,
                                   string razaoSocial,
                                   bool ativo,
                                   int plantaId,

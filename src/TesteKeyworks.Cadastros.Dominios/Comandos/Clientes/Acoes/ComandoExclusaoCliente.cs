@@ -1,8 +1,8 @@
 ﻿namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
 {
-    public class ClienteExclusao : ClienteComando
+    public class ComandoExclusaoCliente : ComandoCliente
     {
-        public ClienteExclusao(int codigo)
+        public ComandoExclusaoCliente(int codigo)
         {
             Codigo = codigo;
         }

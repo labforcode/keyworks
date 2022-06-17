@@ -5,7 +5,7 @@ using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
 
 namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
 {
-    public abstract class ClienteComando : Comando
+    public abstract class ComandoCliente : Comando
     {
         public int Codigo { get; protected set; }
 

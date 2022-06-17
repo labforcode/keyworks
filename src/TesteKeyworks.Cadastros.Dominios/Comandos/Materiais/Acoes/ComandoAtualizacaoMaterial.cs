@@ -1,13 +1,14 @@
 ﻿namespace TesteKeyworks.Cadastros.Dominios.Comandos.Materiais.Acoes
 {
-    public class MaterialInsercao : MaterialComando
+    public class ComandoAtualizacaoMaterial : ComandoMaterial
     {
-        public MaterialInsercao(int codigo,
-                                string descricao)
+        public ComandoAtualizacaoMaterial(int codigo,
+                                   string descricao)
         {
             Codigo = codigo;
             Descricao = descricao;
         }
+
 
         public override bool EhValido()
         {
