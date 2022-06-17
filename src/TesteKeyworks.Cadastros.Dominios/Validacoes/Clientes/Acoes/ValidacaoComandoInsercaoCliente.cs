@@ -4,5 +4,9 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes.Acoes
 {
     public class ValidacaoComandoInsercaoCliente : ValidacaoComandoCliente<ComandoInsercaoCliente>
     {
+        public ValidacaoComandoInsercaoCliente()
+        {
+
+        }
     }
 }

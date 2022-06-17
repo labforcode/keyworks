@@ -1,4 +1,6 @@
-﻿namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
+﻿using TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes.Acoes;
+
+namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
 {
     public class ComandoExclusaoCliente : ComandoCliente
     {
@@ -9,7 +11,8 @@
 
         public override bool EhValido()
         {
-            throw new NotImplementedException();
+            ValidationResult = new ValidacaoComandoExclusaoCliente().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

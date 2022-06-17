@@ -1,4 +1,5 @@
 ﻿using TesteKeyworks.Cadastros.Dominios.Entidades.Materiais;
+using TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes.Acoes;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Responsaveis;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
 
@@ -29,7 +30,8 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
 
         public override bool EhValido()
         {
-            throw new NotImplementedException();
+            ValidationResult = new ValidacaoComandoInsercaoCliente().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

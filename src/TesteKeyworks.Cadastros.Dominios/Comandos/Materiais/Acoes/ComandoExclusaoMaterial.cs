@@ -1,4 +1,6 @@
-﻿namespace TesteKeyworks.Cadastros.Dominios.Comandos.Materiais.Acoes
+﻿using TesteKeyworks.Cadastros.Dominios.Validacoes.Materiais.Acoes;
+
+namespace TesteKeyworks.Cadastros.Dominios.Comandos.Materiais.Acoes
 {
     public class ComandoExclusaoMaterial : ComandoMaterial
     {
@@ -9,7 +11,8 @@
 
         public override bool EhValido()
         {
-            throw new NotImplementedException();
+            ValidationResult = new ValidacaoComandoExclusaoMaterial().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

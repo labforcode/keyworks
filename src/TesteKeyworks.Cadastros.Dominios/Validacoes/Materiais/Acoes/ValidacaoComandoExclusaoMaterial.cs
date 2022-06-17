@@ -4,5 +4,9 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Materiais.Acoes
 {
     public class ValidacaoComandoExclusaoMaterial : ValidacaoComandoMaterial<ComandoExclusaoMaterial>
     {
+        public ValidacaoComandoExclusaoMaterial()
+        {
+
+        }
     }
 }
