@@ -6,7 +6,11 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes.Acoes
     {
         public ValidacaoComandoAtualizacaoCliente()
         {
-
+            ValidarCnpj();
+            ValidarRazaoSocial();
+            ValidarNomeResponsavel();
+            ValidarTelefoneResponsavel();
+            ValidarTelefone();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes.Acoes
     {
         public ValidacaoComandoExclusaoCliente()
         {
-
+            ValidarCodigo();
         }
     }
 }
