@@ -13,7 +13,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Materiais
                 {
                     if (codigo <= 0)
                     {
-                        var notificacao = $"";
+                        var notificacao = $"Código do material não informado.";
                         Notificacao.RegistrarNotificacao(notificacao);
                         context.AddFailure(notificacao);
                     }
@@ -27,7 +27,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Materiais
                 {
                     if (string.IsNullOrEmpty(descricao))
                     {
-                        var notificacao = $"";
+                        var notificacao = $"É preciso informar uma descrição para o material.";
                         Notificacao.RegistrarNotificacao(notificacao);
                         context.AddFailure(notificacao);
                     }

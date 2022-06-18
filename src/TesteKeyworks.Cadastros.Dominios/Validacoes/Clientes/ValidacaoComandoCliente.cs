@@ -13,7 +13,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                 {
                     if (codigo <= 0)
                     {
-                        var notificacao = $"";
+                        var notificacao = @"Código do cliente não informado.";
                         Notificacao.RegistrarNotificacao(notificacao);
                         context.AddFailure(notificacao);
                     }
@@ -27,7 +27,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                 {
                     if (string.IsNullOrEmpty(cnpj))
                     {
-                        var notificacao = $"";
+                        var notificacao = $"CNPJ inválido.";
                         Notificacao.RegistrarNotificacao(notificacao);
                         context.AddFailure(notificacao);
                     }
@@ -41,7 +41,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                 {
                     if (string.IsNullOrEmpty(razaoSocial))
                     {
-                        var notificacao = $"";
+                        var notificacao = $"Razão Social não preenchida.";
                         Notificacao.RegistrarNotificacao(notificacao);
                         context.AddFailure(notificacao);
                     }
@@ -55,7 +55,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                 {
                     if (string.IsNullOrEmpty(nome))
                     {
-                        var notificacao = $"";
+                        var notificacao = $"É necessário informar um nome para o Responsável.";
                         Notificacao.RegistrarNotificacao(notificacao);
                         context.AddFailure(notificacao);
                     }
@@ -69,7 +69,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                 {
                     if (string.IsNullOrEmpty(email))
                     {
-                        var notificacao = $"";
+                        var notificacao = $"É necessário informar um e-mail para o Responsável.";
                         Notificacao.RegistrarNotificacao(notificacao);
                         context.AddFailure(notificacao);
                     }
@@ -83,7 +83,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                 {
                     if (string.IsNullOrEmpty(telefone.DDI) || string.IsNullOrEmpty(telefone.DDD) || string.IsNullOrEmpty(telefone.Numero))
                     {
-                        var notificacao = $"";
+                        var notificacao = $"O telefone deve conter DDI + DDD + Número.";
                         Notificacao.RegistrarNotificacao(notificacao);
                         context.AddFailure(notificacao);
                     }
