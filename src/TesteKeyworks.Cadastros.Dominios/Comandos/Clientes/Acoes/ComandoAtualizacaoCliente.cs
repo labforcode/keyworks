@@ -1,5 +1,4 @@
-﻿using TesteKeyworks.Cadastros.Dominios.Entidades.Materiais;
-using TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes.Acoes;
+﻿using TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes.Acoes;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Responsaveis;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
 
@@ -12,9 +11,9 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
                                   bool ativo,
                                   int plantaId,
                                   int tipoCliente,
+                                  int codigoMaterial,
                                   Responsavel responsavel,
-                                  Telefone telefone,
-                                  List<Material> materiais)
+                                  Telefone telefone)
         {
             Codigo = codigo;
             RazaoSocial = razaoSocial;
@@ -22,8 +21,8 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
             PlantaId = plantaId;
             Responsavel = responsavel;
             TipoCliente = tipoCliente;
+            CodigoMaterial = codigoMaterial;
             Telefone = telefone;
-            Materiais = materiais;
         }
 
         public override bool EhValido()

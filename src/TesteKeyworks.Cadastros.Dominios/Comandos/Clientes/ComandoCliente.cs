@@ -1,5 +1,4 @@
 ﻿using TesteKeyworks.Cadastros.Dominios.Core.Comandos;
-using TesteKeyworks.Cadastros.Dominios.Entidades.Materiais;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Responsaveis;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
 
@@ -19,10 +18,10 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
 
         public int TipoCliente { get; protected set; }
 
+        public int CodigoMaterial { get; protected set; }
+
         public Responsavel Responsavel { get; protected set; }
 
         public Telefone Telefone { get; protected set; }
-
-        public List<Material> Materiais { get; protected set; }
     }
 }

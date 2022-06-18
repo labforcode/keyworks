@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using TesteKeyworks.Cadastros.Dominios.Comandos.Clientes;
-using TesteKeyworks.Cadastros.Dominios.Comandos.Materiais;
 
 namespace TesteKeyworks.Cadastros.Infra.CrossCutting
 {
@@ -11,10 +10,6 @@ namespace TesteKeyworks.Cadastros.Infra.CrossCutting
             services.AddScoped<IComandoHandlerCliente, ComandoHandlerCliente>();
             services.AddScoped<IComandoHandlerCliente, ComandoHandlerCliente>();
             services.AddScoped<IComandoHandlerCliente, ComandoHandlerCliente>();
-
-            services.AddScoped<IComandoHandlerMaterial, ComandoHandlerMaterial>();
-            services.AddScoped<IComandoHandlerMaterial, ComandoHandlerMaterial>();
-            services.AddScoped<IComandoHandlerMaterial, ComandoHandlerMaterial>();
         }
     }
 }

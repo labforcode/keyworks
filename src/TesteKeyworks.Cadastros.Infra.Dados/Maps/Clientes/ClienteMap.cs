@@ -37,7 +37,11 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.Clientes
                    .HasColumnName("tipo_cliente")
                    .IsRequired();
 
-            builder.OwnsOne(c => c.Responsavel, r => 
+            builder.Property(c => c.CodigoMaterial)
+                   .HasColumnName("codigo_material")
+                   .IsRequired();
+
+            builder.OwnsOne(c => c.Responsavel, r =>
             {
                 r.Property(c => c.Nome)
                  .HasColumnName("responsavel_nome")
@@ -50,7 +54,7 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.Clientes
                  .IsRequired();
             });
 
-            builder.OwnsOne(c => c.Telefone, t => 
+            builder.OwnsOne(c => c.Telefone, t =>
             {
                 t.Property(c => c.DDI)
                        .HasColumnName("telefone_ddi")
@@ -67,10 +71,6 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.Clientes
                        .HasColumnType("varchar(10)")
                        .IsRequired();
             });
-
-            builder.HasMany(c => c.Materiais)
-                    .WithMany(c => c.Clientes)
-                    .UsingEntity(c => c.ToTable("clientes_materiais"));
         }
     }
 }

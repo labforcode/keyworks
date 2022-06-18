@@ -18,7 +18,8 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Repositorios.Clientes
                                                   c.responsavel_email AS ResponsavelEmail,
                                                   c.telefone_ddi      AS TelefoneDDI,
                                                   c.telefone_ddd      AS TelefoneDDD,
-                                                  c.telefone_numero   AS TelefoneNumero
+                                                  c.telefone_numero   AS TelefoneNumero,
+                                                  c.codigo_material   AS CodigoMaterial  
                                            FROM clientes AS c ";
 
         public ClienteRepositorio(IConfiguration configuration, DbKeyworks context) : base(configuration, context)
