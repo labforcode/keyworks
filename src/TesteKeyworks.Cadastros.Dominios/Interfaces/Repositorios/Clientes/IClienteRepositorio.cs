@@ -2,7 +2,7 @@
 
 namespace TesteKeyworks.Cadastros.Dominios.Interfaces.Repositorios.Clientes
 {
-    public interface IClienteRepositorio
+    public interface IClienteRepositorio : IBaseRepositorio<Cliente>
     {
         /// <summary>
         /// Retorna um cliente por seu código
@@ -10,6 +10,13 @@ namespace TesteKeyworks.Cadastros.Dominios.Interfaces.Repositorios.Clientes
         /// <param name="codigo"></param>
         /// <returns></returns>
         Task<Cliente> ObterClienteAsync(int codigo);
+
+        /// <summary>
+        /// Retorna um cliente por seu código
+        /// </summary>
+        /// <param name="cnpj"></param>
+        /// <returns></returns>
+        Task<Cliente> ObterClienteAsync(string cnpj);
 
         /// <summary>
         /// Retorna uma lista de clientes

@@ -43,6 +43,23 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Repositorios.Clientes
         }
 
         /// <inheritdoc/>
+        public Task<Cliente> ObterClienteAsync(string cnpj)
+        {
+            try
+            {
+                var connection = Connection;
+                var query = $@"{_query}
+                                WHERE c.cnpj = @value_cnpj";
+
+                return connection.QueryFirstOrDefaultAsync<Cliente>(query, new { value_cnpj = cnpj });
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        /// <inheritdoc/>
         public Task<IEnumerable<Cliente>> ObterClientesAsync()
         {
             try
