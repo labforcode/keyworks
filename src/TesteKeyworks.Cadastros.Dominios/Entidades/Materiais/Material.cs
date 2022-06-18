@@ -1,4 +1,4 @@
-﻿using TesteKeyworks.Cadastros.Dominios.Entidades.Clientes;
+﻿using TesteKeyworks.Cadastros.Dominios.Entidades.ClientesMateriais;
 
 namespace TesteKeyworks.Cadastros.Dominios.Entidades.Materiais
 {
@@ -15,6 +15,6 @@ namespace TesteKeyworks.Cadastros.Dominios.Entidades.Materiais
 
         public string Descricao { get; private set; }
 
-        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<ClienteMaterial> ClientesMateriais { get; set; }
     }
 }

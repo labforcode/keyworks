@@ -67,10 +67,6 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.Clientes
                        .HasColumnType("varchar(10)")
                        .IsRequired();
             });
-
-            builder.HasMany(c => c.Materiais)
-                    .WithMany(c => c.Clientes)
-                    .UsingEntity(c => c.ToTable("clientes_materiais"));
         }
     }
 }

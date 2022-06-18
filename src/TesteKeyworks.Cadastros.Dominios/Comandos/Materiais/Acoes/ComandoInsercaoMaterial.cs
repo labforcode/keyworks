@@ -5,7 +5,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Materiais.Acoes
     public class ComandoInsercaoMaterial : ComandoMaterial
     {
         public ComandoInsercaoMaterial(int codigo,
-                                string descricao)
+                                       string descricao)
         {
             Codigo = codigo;
             Descricao = descricao;
