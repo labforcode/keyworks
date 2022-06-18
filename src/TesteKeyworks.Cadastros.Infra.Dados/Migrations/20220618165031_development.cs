@@ -24,6 +24,7 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                     ativo = table.Column<bool>(type: "boolean", nullable: false),
                     planta_id = table.Column<int>(type: "integer", nullable: false),
                     tipo_cliente = table.Column<int>(type: "integer", nullable: false),
+                    codigo_material = table.Column<int>(type: "integer", nullable: false),
                     responsavel_nome = table.Column<string>(type: "varchar(140)", nullable: false),
                     responsavel_email = table.Column<string>(type: "varchar(80)", nullable: false),
                     telefone_ddi = table.Column<string>(type: "varchar(2)", nullable: false),
@@ -34,46 +35,12 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                 {
                     table.PrimaryKey("PK_clientes", x => x.codigo);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "clientes_materiais",
-                schema: "public",
-                columns: table => new
-                {
-                    codigo_cliente = table.Column<int>(type: "integer", nullable: false),
-                    codigo_material = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                });
-
-            migrationBuilder.CreateTable(
-                name: "materiais",
-                schema: "public",
-                columns: table => new
-                {
-                    codigo = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    descricao = table.Column<string>(type: "varchar(120)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_materiais", x => x.codigo);
-                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "clientes",
-                schema: "public");
-
-            migrationBuilder.DropTable(
-                name: "clientes_materiais",
-                schema: "public");
-
-            migrationBuilder.DropTable(
-                name: "materiais",
                 schema: "public");
         }
     }

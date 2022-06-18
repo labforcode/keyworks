@@ -1,6 +1,4 @@
-﻿using TesteKeyworks.Cadastros.Servicos.DTOs.Materiais;
-
-namespace TesteKeyworks.Cadastros.Servicos.DTOs.Clientes
+﻿namespace TesteKeyworks.Cadastros.Servicos.DTOs.Clientes
 {
     public class ClienteDto
     {
@@ -16,10 +14,10 @@ namespace TesteKeyworks.Cadastros.Servicos.DTOs.Clientes
 
         public int TipoCliente { get; set; }
 
+        public int CodigoMaterial { get; set; }
+
         public ResponsavelDto Responsavel { get; set; }
 
         public TelefoneDto Telefone { get; set; }
-
-        public List<MaterialDto> Materiais { get; set; }
     }
 }

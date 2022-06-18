@@ -40,6 +40,10 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                         .HasColumnType("varchar(14)")
                         .HasColumnName("cnpj");
 
+                    b.Property<int>("CodigoMaterial")
+                        .HasColumnType("integer")
+                        .HasColumnName("codigo_material");
+
                     b.Property<int>("PlantaId")
                         .HasColumnType("integer")
                         .HasColumnName("planta_id");
@@ -56,38 +60,6 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                     b.HasKey("Codigo");
 
                     b.ToTable("clientes", "public");
-                });
-
-            modelBuilder.Entity("TesteKeyworks.Cadastros.Dominios.Entidades.ClientesMateriais.ClienteMaterial", b =>
-                {
-                    b.Property<int>("CodigoCliente")
-                        .HasColumnType("integer")
-                        .HasColumnName("codigo_cliente");
-
-                    b.Property<int>("CodigoMaterial")
-                        .HasColumnType("integer")
-                        .HasColumnName("codigo_material");
-
-                    b.ToTable("clientes_materiais", "public");
-                });
-
-            modelBuilder.Entity("TesteKeyworks.Cadastros.Dominios.Entidades.Materiais.Material", b =>
-                {
-                    b.Property<int>("Codigo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("codigo");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Codigo"));
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("varchar(120)")
-                        .HasColumnName("descricao");
-
-                    b.HasKey("Codigo");
-
-                    b.ToTable("materiais", "public");
                 });
 
             modelBuilder.Entity("TesteKeyworks.Cadastros.Dominios.Entidades.Clientes.Cliente", b =>

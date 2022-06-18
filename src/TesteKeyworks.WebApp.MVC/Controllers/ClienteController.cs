@@ -1,21 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TesteKeyworks.Cadastros.Servicos.DTOs.Clientes;
-using TesteKeyworks.Cadastros.Servicos.DTOs.Materiais;
 using TesteKeyworks.Cadastros.Servicos.Interfaces.Clientes;
-using TesteKeyworks.Cadastros.Servicos.Interfaces.Materiais;
 
 namespace TesteKeyworks.WebApp.MVC.Controllers
 {
     public class ClienteController : Controller
     {
         private readonly IClienteServico _clienteServico;
-        private readonly IMaterialServico _materialServico;
 
-        public ClienteController(IClienteServico clienteServico,
-                                 IMaterialServico materialServico)
+        public ClienteController(IClienteServico clienteServico)
         {
             _clienteServico = clienteServico;
-            _materialServico = materialServico;
         }
 
         public IActionResult Index()
@@ -27,9 +22,9 @@ namespace TesteKeyworks.WebApp.MVC.Controllers
                 RazaoSocial = "Teste 3",
                 PlantaId = 1,
                 TipoCliente = 1,
+                CodigoMaterial = 1,
                 Responsavel = new ResponsavelDto { Email = "teste3@teste.com.br", Nome = "Cadastro Teste" },
                 Telefone = new TelefoneDto { DDI = "55", DDD = "43", Numero = "988106324" },
-                Materiais = new List<MaterialDto> { new MaterialDto { Codigo = 1, Descricao = "aço" } }
             };
 
             _clienteServico.Adicionar(cliente);

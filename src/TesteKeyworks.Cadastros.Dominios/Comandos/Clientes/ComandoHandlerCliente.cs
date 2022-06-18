@@ -11,11 +11,13 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
         private readonly IUnitOfWork _uow;
         private readonly IClienteRepositorio _clienteRepositorio;
 
+
         public ComandoHandlerCliente(IUnitOfWork uow,
                                      IClienteRepositorio clienteRepositorio)
         {
             _uow = uow;
             _clienteRepositorio = clienteRepositorio;
+
         }
 
         public void Handler(ComandoAtualizacaoCliente comando)
@@ -37,9 +39,9 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
                                           comando.Ativo,
                                           comando.PlantaId,
                                           comando.TipoCliente,
+                                          comando.CodigoMaterial,
                                           comando.Responsavel,
-                                          comando.Telefone,
-                                          comando.Materiais);
+                                          comando.Telefone);
 
                 _clienteRepositorio.Atualizar(cliente);
                 if (_uow.Commit() == false)
@@ -99,9 +101,9 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
                                           true,
                                           comando.PlantaId,
                                           comando.TipoCliente,
+                                          comando.CodigoMaterial,
                                           comando.Responsavel,
-                                          comando.Telefone,
-                                          comando.Materiais);
+                                          comando.Telefone);
 
                 _clienteRepositorio.Adicionar(cliente);
                 if (_uow.Commit() == false)
