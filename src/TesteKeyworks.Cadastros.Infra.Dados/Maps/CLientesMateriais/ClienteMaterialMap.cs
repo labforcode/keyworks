@@ -2,27 +2,23 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TesteKeyworks.Cadastros.Dominios.Entidades.ClientesMateriais;
 
-namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.CLientesMateriais
+namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.ClientesMateriais
 {
     public class ClienteMaterialMap : IEntityTypeConfiguration<ClienteMaterial>
     {
         public void Configure(EntityTypeBuilder<ClienteMaterial> builder)
         {
             builder.ToTable("clientes_materiais");
-            builder.HasKey(c => new { c.CodigoCliente, c.CodigoMaterial });
+
+            builder.HasNoKey();
 
             builder.Property(c => c.CodigoCliente)
-                   .HasColumnName("codigo_cliete")
+                   .HasColumnName("codigo_cliente")
                    .IsRequired();
 
             builder.Property(c => c.CodigoMaterial)
+                    .HasColumnName("codigo_material")
                    .IsRequired();
-
-            builder.HasOne(c => c.Cliente)
-                   .WithMany(c => c.ClientesMateriais);
-
-            builder.HasOne(c => c.Material)
-                   .WithMany(c => c.ClientesMateriais);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using TesteKeyworks.Cadastros.Dominios.Core.Notificacoes;
-using TesteKeyworks.Cadastros.Dominios.Entidades.ClientesMateriais;
 using TesteKeyworks.Cadastros.Dominios.Entidades.Materiais;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Responsaveis;
 using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
@@ -48,8 +47,6 @@ namespace TesteKeyworks.Cadastros.Dominios.Entidades.Clientes
         public Telefone Telefone { get; private set; }
 
         private List<Material> _materiais { get; set; }
-
-        public virtual ICollection<ClienteMaterial> ClientesMateriais { get; set; }
 
         public void AdicionarMaterial(Material material)
         {

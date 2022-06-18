@@ -3,7 +3,7 @@ using TesteKeyworks.Cadastros.Dominios.Entidades.Clientes;
 using TesteKeyworks.Cadastros.Dominios.Entidades.ClientesMateriais;
 using TesteKeyworks.Cadastros.Dominios.Entidades.Materiais;
 using TesteKeyworks.Cadastros.Infra.Dados.Maps.Clientes;
-using TesteKeyworks.Cadastros.Infra.Dados.Maps.CLientesMateriais;
+using TesteKeyworks.Cadastros.Infra.Dados.Maps.ClientesMateriais;
 using TesteKeyworks.Cadastros.Infra.Dados.Maps.Materiais;
 
 namespace TesteKeyworks.Cadastros.Infra.Dados.Contextos
