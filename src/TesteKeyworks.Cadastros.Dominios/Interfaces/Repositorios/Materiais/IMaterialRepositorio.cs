@@ -2,7 +2,7 @@
 
 namespace TesteKeyworks.Cadastros.Dominios.Interfaces.Repositorios.Materiais
 {
-    public interface IMaterialRepositorio
+    public interface IMaterialRepositorio : IBaseRepositorio<Material>
     {
         /// <summary>
         /// Retorna um material por seu código
