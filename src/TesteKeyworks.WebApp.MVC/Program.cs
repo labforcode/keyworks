@@ -1,6 +1,9 @@
 using TesteKeyworks.Cadastros.Infra.CrossCutting;
+using TesteKeyworks.WebApp.MVC.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAutoMapperSetup();
 
 InjecaoDependencia.RegistrarInjecaoDependencia(builder.Services, builder.Configuration);
 
@@ -26,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Cliente}/{action=Index}/{id?}");
 
 app.Run();

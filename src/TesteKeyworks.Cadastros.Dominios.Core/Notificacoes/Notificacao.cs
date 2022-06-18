@@ -11,7 +11,9 @@
 
         public static string ObterNotificacao()
         {
-            return _notificacoes.FirstOrDefault();
+            var notificacao = _notificacoes.FirstOrDefault();
+            _notificacoes.Clear();
+            return notificacao;
         }
 
         public static bool VerificarSeHaNotificacao()

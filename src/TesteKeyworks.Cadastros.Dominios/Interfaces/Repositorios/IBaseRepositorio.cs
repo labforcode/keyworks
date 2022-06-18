@@ -2,10 +2,10 @@
 {
     public interface IBaseRepositorio<T> where T : class
     {
-        void Add(T t);
+        void Adicionar(T t);
 
-        void Update(T t);
+        void Atualizar(T t);
 
-        void Delete(T t);
+        void Excluir(T t);
     }
 }

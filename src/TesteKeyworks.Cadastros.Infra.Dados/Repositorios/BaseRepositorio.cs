@@ -22,17 +22,17 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Repositorios
             _connectionStrings = configuration.GetConnectionString("dbkeyworks");
         }
 
-        public void Add(T t)
+        public void Adicionar(T t)
         {
             _dbSet.Add(t);
         }
 
-        public void Update(T t)
+        public void Atualizar(T t)
         {
             _dbSet.Update(t);
         }
 
-        public void Delete(T t)
+        public void Excluir(T t)
         {
             _dbSet.Remove(t);
         }
