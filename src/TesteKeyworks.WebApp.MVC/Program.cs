@@ -1,6 +1,9 @@
 using TesteKeyworks.Cadastros.Infra.CrossCutting;
+using TesteKeyworks.WebApp.MVC.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAutoMapperSetup();
 
 InjecaoDependencia.RegistrarInjecaoDependencia(builder.Services, builder.Configuration);
 

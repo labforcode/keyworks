@@ -1,4 +1,8 @@
-﻿using TesteKeyworks.Cadastros.Servicos.DTOs.Clientes;
+﻿using AutoMapper;
+using TesteKeyworks.Cadastros.Dominios.Comandos.Clientes;
+using TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes;
+using TesteKeyworks.Cadastros.Dominios.Interfaces.Repositorios.Clientes;
+using TesteKeyworks.Cadastros.Servicos.DTOs.Clientes;
 using TesteKeyworks.Cadastros.Servicos.Interfaces.Clientes;
 using TesteKeyworks.Cadastros.Servicos.ViewModels.Clientes;
 
@@ -6,29 +10,45 @@ namespace TesteKeyworks.Cadastros.Servicos.Servicos.Clientes
 {
     public class ClienteServico : IClienteServico
     {
+        private readonly IMapper _mapper;
+        private readonly IComandoHandlerCliente _comandoHandlerCliente;
+        private readonly IClienteRepositorio _clienteRepositorio;
+
+        public ClienteServico(IMapper mapper,
+                              IComandoHandlerCliente comandoHandlerCliente,
+                              IClienteRepositorio clienteRepositorio)
+        {
+            _mapper = mapper;
+            _comandoHandlerCliente = comandoHandlerCliente;
+            _clienteRepositorio = clienteRepositorio;
+        }
+
         public void Adicionar(ClienteDto cliente)
         {
-            throw new NotImplementedException();
+            var comando = _mapper.Map<ComandoInsercaoCliente>(cliente);
+            _comandoHandlerCliente.Handler(comando);
         }
 
         public void Atualizar(ClienteDto cliente)
         {
-            throw new NotImplementedException();
+            var comando = _mapper.Map<ComandoAtualizacaoCliente>(cliente);
+            _comandoHandlerCliente.Handler(comando);
         }
 
         public void Excluir(int codigo)
         {
-            throw new NotImplementedException();
+            var comando = _mapper.Map<ComandoExclusaoCliente>(codigo);
+            _comandoHandlerCliente.Handler(comando);
         }
 
-        public Task<ClienteViewModel> ObterCliente(int codigo)
+        public Task<ClienteViewModel> ObterClienteAsync(int codigo)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_mapper.Map<ClienteViewModel>(_clienteRepositorio.ObterClienteAsync(codigo)));
         }
 
-        public Task<IEnumerable<ClienteViewModel>> ObterClientes()
+        public Task<IEnumerable<ClienteViewModel>> ObterClientesAsync()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_mapper.Map<IEnumerable<ClienteViewModel>>(_clienteRepositorio.ObterClientesAsync()));
         }
 
         public void Dispose()

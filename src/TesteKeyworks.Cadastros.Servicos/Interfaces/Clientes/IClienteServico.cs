@@ -28,12 +28,12 @@ namespace TesteKeyworks.Cadastros.Servicos.Interfaces.Clientes
         /// </summary>
         /// <param name="codigo"></param>
         /// <returns></returns>
-        Task<ClienteViewModel> ObterCliente(int codigo);
+        Task<ClienteViewModel> ObterClienteAsync(int codigo);
 
         /// <summary>
         /// Retorna todos os clientes
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<ClienteViewModel>> ObterClientes();
+        Task<IEnumerable<ClienteViewModel>> ObterClientesAsync();
     }
 }

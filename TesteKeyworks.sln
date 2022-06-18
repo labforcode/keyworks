@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Servicos", "1-Servicos", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteKeyworks.Cadastros.Servicos", "src\TesteKeyworks.Cadastros.Servicos\TesteKeyworks.Cadastros.Servicos.csproj", "{9A770390-B8A6-4534-81D4-01DCA2DF9252}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteKeyworks.Cadastros.Dominios.Core", "src\TesteKeyworks.Cadastros.Dominios.Core\TesteKeyworks.Cadastros.Dominios.Core.csproj", "{660DAE4D-D35C-4F13-811C-4E0CF95F476C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteKeyworks.Cadastros.Dominios.Core", "src\TesteKeyworks.Cadastros.Dominios.Core\TesteKeyworks.Cadastros.Dominios.Core.csproj", "{660DAE4D-D35C-4F13-811C-4E0CF95F476C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -28,12 +28,12 @@ namespace TesteKeyworks.Cadastros.Servicos.Interfaces.Materiais
         /// </summary>
         /// <param name="codigo"></param>
         /// <returns></returns>
-        Task<MaterialViewModel> ObterMaterial(int codigo);
+        Task<MaterialViewModel> ObterMaterialAsync(int codigo);
 
         /// <summary>
         /// Retorna todos os materiais
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<MaterialViewModel>> ObterMateriais();
+        Task<IEnumerable<MaterialViewModel>> ObterMateriaisAsync();
     }
 }
