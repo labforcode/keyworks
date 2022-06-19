@@ -44,6 +44,16 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("codigo_material");
 
+                    b.Property<string>("DDD")
+                        .IsRequired()
+                        .HasColumnType("varchar(3)")
+                        .HasColumnName("ddd");
+
+                    b.Property<string>("DDI")
+                        .IsRequired()
+                        .HasColumnType("varchar(2)")
+                        .HasColumnName("ddi");
+
                     b.Property<int>("PlantaId")
                         .HasColumnType("integer")
                         .HasColumnName("planta_id");
@@ -53,6 +63,21 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                         .HasColumnType("varchar(140)")
                         .HasColumnName("razao_social");
 
+                    b.Property<string>("ResponsavelEmail")
+                        .IsRequired()
+                        .HasColumnType("varchar(80)")
+                        .HasColumnName("responsavel_email");
+
+                    b.Property<string>("ResponsavelNome")
+                        .IsRequired()
+                        .HasColumnType("varchar(140)")
+                        .HasColumnName("responsavel_nome");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("telefone");
+
                     b.Property<int>("TipoCliente")
                         .HasColumnType("integer")
                         .HasColumnName("tipo_cliente");
@@ -60,66 +85,6 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                     b.HasKey("Codigo");
 
                     b.ToTable("clientes", "public");
-                });
-
-            modelBuilder.Entity("TesteKeyworks.Cadastros.Dominios.Entidades.Clientes.Cliente", b =>
-                {
-                    b.OwnsOne("TesteKeyworks.Cadastros.Dominios.ValueObjects.Responsaveis.Responsavel", "Responsavel", b1 =>
-                        {
-                            b1.Property<int>("ClienteCodigo")
-                                .HasColumnType("integer");
-
-                            b1.Property<string>("Email")
-                                .IsRequired()
-                                .HasColumnType("varchar(80)")
-                                .HasColumnName("responsavel_email");
-
-                            b1.Property<string>("Nome")
-                                .IsRequired()
-                                .HasColumnType("varchar(140)")
-                                .HasColumnName("responsavel_nome");
-
-                            b1.HasKey("ClienteCodigo");
-
-                            b1.ToTable("clientes", "public");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ClienteCodigo");
-                        });
-
-                    b.OwnsOne("TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones.Telefone", "Telefone", b1 =>
-                        {
-                            b1.Property<int>("ClienteCodigo")
-                                .HasColumnType("integer");
-
-                            b1.Property<string>("DDD")
-                                .IsRequired()
-                                .HasColumnType("varchar(3)")
-                                .HasColumnName("telefone_ddd");
-
-                            b1.Property<string>("DDI")
-                                .IsRequired()
-                                .HasColumnType("varchar(2)")
-                                .HasColumnName("telefone_ddi");
-
-                            b1.Property<string>("Numero")
-                                .IsRequired()
-                                .HasColumnType("varchar(10)")
-                                .HasColumnName("telefone_numero");
-
-                            b1.HasKey("ClienteCodigo");
-
-                            b1.ToTable("clientes", "public");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ClienteCodigo");
-                        });
-
-                    b.Navigation("Responsavel")
-                        .IsRequired();
-
-                    b.Navigation("Telefone")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

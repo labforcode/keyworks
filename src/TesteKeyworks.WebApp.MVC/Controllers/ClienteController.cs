@@ -16,7 +16,8 @@ namespace TesteKeyworks.WebApp.MVC.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-   
+            var clientes = _clienteServico.ObterClientesAsync().Result;
+            ViewBag.Clientes = clientes;
 
             return View();
         }
@@ -49,19 +50,22 @@ namespace TesteKeyworks.WebApp.MVC.Controllers
         [HttpPost]
         public IActionResult CadastrarCliente([FromBody] ClienteDto cliente)
         {
-            ////cadastro
-            //var cliente = new ClienteDto
-            //{
-            //    Cnpj = "12345678901236",
-            //    RazaoSocial = "Teste 3",
-            //    PlantaId = 1,
-            //    TipoCliente = 1,
-            //    CodigoMaterial = 1,
-            //    Responsavel = new ResponsavelDto { Email = "teste3@teste.com.br", Nome = "Cadastro Teste" },
-            //    Telefone = new TelefoneDto { DDI = "55", DDD = "43", Numero = "988106324" },
-            //};
+            //cadastro
+            var client1e = new ClienteDto
+            {
+                Cnpj = "12345678901236",
+                RazaoSocial = "Teste 3",
+                PlantaId = 1,
+                TipoCliente = 1,
+                CodigoMaterial = 1,
+                ResponsavelNome = "Cadastro Teste",
+                ResponsavelEmail = "teste3@teste.com.br",
+                DDI = "55",
+                DDD = "43",
+                Telefone = "988106324",
+            };
 
-            //_clienteServico.Adicionar(cliente);
+            _clienteServico.Adicionar(client1e);
 
             return Ok();
         }

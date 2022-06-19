@@ -1,6 +1,165 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "_Layout";
 }
-<p>TESTE</p>
+
+<div class="page-wrapper" id="page-wrapper">
+    <aside id="page-aside" class=" page-aside aside-fixed aside-folded">
+        <div class="sidenav darkNav">
+            <a href="index.html" class="app-logo d-flex flex flex-row align-items-center overflow-hidden justify-content-center">
+                <i class="icon-Paper-Plane inline-icon rounded avatar32 d-inline-flex align-items-center justify-content-center"></i>
+                <span class="logo-text d-inline-flex"> <span class='font700 d-inline-block mr-1'>ASSAN</span> UI</span>
+            </a>
+            <div class="flex">
+                <div class="aside-content slim-scroll">
+                    <ul class="metisMenu" id="metisMenu">
+                        <li> 
+                            <i class="far fa-bell nav-thumbnail"></i>
+                            <a>
+                                <span class="nav-text">
+                                    Notificações
+                                </span>
+                            </a>
+                        </li><!--Menu-item-->
+                        <li> 
+                            <i class="fa fa-calendar nav-thumbnail"></i>
+                            <a>
+                                <span class="nav-text">
+                                    Gestão do Tempo
+                                </span>
+                            </a>
+                        </li><!--Menu-item-->
+                        <li> 
+                            <i class="fa fa-bullseye nav-thumbnail"></i>
+                            <a>
+                                <span class="nav-text">
+                                    Gestão de Processos
+                                </span>
+                            </a>
+                        </li><!--Menu-item-->
+                        <li> 
+                            <i class="fa fa-newspaper nav-thumbnail"></i>
+                            <a>
+                                <span class="nav-text">
+                                    Relatórios 
+                                </span>
+                            </a>
+                        </li><!--Menu-item-->
+                        <li> 
+                            <i class="fa fa-user-plus nav-thumbnail"></i>
+                            <a>
+                                <span class="nav-text">
+                                    Cadastros 
+                                </span>
+                            </a>
+                        </li><!--Menu-item-->
+                        <li> 
+                            <i class="fa fa-building nav-thumbnail"></i>
+                            <a>
+                                <span class="nav-text">
+                                    Parâmetros 
+                                </span>
+                            </a>
+                        </li><!--Menu-item-->
+                    </ul>
+                </div><!-- aside content end-->
+            </div><!-- aside hidden scroll end-->
+            <div class="aside-footer p-3 pl-25">
+                <div class="">
+                    App Version - 1.0
+                </div>
+            </div><!-- aside footer end-->
+        </div><!-- sidenav end-->
+    </aside><!-- page-aside end-->
+    <main class="content">
+
+    <div class="page-subheader mb-30">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <div class="list">
+                        <div class="list-item pl-0">
+                            <div class="list-body ml-0 mr-3 pr-3  b-r text-muted">
+                                <span class="list-title fs-1x"><i class="fa fa-arrow-left"></i></span>
+                                <span class="list-content">Volta</span>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- page-sub-Header end-->
+
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <div class="bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30">
+
+                <table class="table mb-0 table-striped" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cliente in ViewBag.Clientes)
+                        {
+                             <tr>
+                                <td>
+                                    <a class="btn-icon-sm mr-2 mb-2">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn-icon-sm mr-2 mb-2">
+                                        <i class="fa fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                                <td>@cliente.Codigo</td>
+                                <td>@cliente.RazaoSocial</td>
+                                <td>
+                                    @if(@cliente.Ativo)
+                                    {
+                                        <span class="btn btn-rounded btn-outline-success mr-1 mb-2">Ativo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-rounded btn-outline-secondary mr-1 mb-2">Inativo</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="content-footer bg-light b-t">
+    </footer><!-- footer end-->
+    </main><!-- page content end-->
+</div><!-- app's main wrapper end -->
+
+<script>
+
+    //async function obterClientes() {
+    //    fetch('~/Cliente/Index')
+    //        .then(response => { })
+    //        .catch(error => { })
+    //}
+
+
+    //window.onload = function() {
+        
+    //    console.log(await obterClientes());
+
+
+
+    //}
+
+
+</script>

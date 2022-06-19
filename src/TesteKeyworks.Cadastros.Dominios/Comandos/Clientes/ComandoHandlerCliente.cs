@@ -29,7 +29,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
                 var clienteExistente = _clienteRepositorio.ObterClienteAsync(comando.Codigo).Result;
                 if (clienteExistente == null)
                 {
-                    Notificacao.RegistrarNotificacao($"Cliente não cadastrado, verifique!");
+                    Notificacao.Notificar($"Cliente não cadastrado, verifique!");
                     return;
                 }
 
@@ -40,13 +40,16 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
                                           comando.PlantaId,
                                           comando.TipoCliente,
                                           comando.CodigoMaterial,
-                                          comando.Responsavel,
+                                          comando.ResponsavelNome,
+                                          comando.ResponsavelEmail,
+                                          comando.DDI,
+                                          comando.DDD,
                                           comando.Telefone);
 
                 _clienteRepositorio.Atualizar(cliente);
                 if (_uow.Commit() == false)
                 {
-                    Notificacao.RegistrarNotificacao($"Não foi possível atualizar o cliente, tente novamente mais tarde!");
+                    Notificacao.Notificar($"Não foi possível atualizar o cliente, tente novamente mais tarde!");
                     return;
                 }
             }
@@ -65,14 +68,14 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
                 var clienteExistente = _clienteRepositorio.ObterClienteAsync(comando.Codigo).Result;
                 if (clienteExistente == null)
                 {
-                    Notificacao.RegistrarNotificacao($"Cliente não cadastrado, verifique!");
+                    Notificacao.Notificar($"Cliente não cadastrado, verifique!");
                     return;
                 }
 
                 _clienteRepositorio.Excluir(clienteExistente);
                 if (_uow.Commit() == false)
                 {
-                    Notificacao.RegistrarNotificacao($"Não foi possível excluir o cliente, tente novamente mais tarde!");
+                    Notificacao.Notificar($"Não foi possível excluir o cliente, tente novamente mais tarde!");
                     return;
                 }
             }
@@ -91,24 +94,27 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
                 var clienteExistente = _clienteRepositorio.ObterClienteAsync(comando.Cnpj).Result;
                 if (clienteExistente != null)
                 {
-                    Notificacao.RegistrarNotificacao($"Cliente já cadastrado, verifique!");
+                    Notificacao.Notificar($"Cliente já cadastrado, verifique!");
                     return;
                 }
 
                 var cliente = new Cliente(0,
                                           comando.Cnpj,
                                           comando.RazaoSocial,
-                                          true,
+                                          false,
                                           comando.PlantaId,
                                           comando.TipoCliente,
                                           comando.CodigoMaterial,
-                                          comando.Responsavel,
+                                          comando.ResponsavelNome,
+                                          comando.ResponsavelEmail,
+                                          comando.DDI,
+                                          comando.DDD,
                                           comando.Telefone);
 
                 _clienteRepositorio.Adicionar(cliente);
                 if (_uow.Commit() == false)
                 {
-                    Notificacao.RegistrarNotificacao($"Não foi possível cadastrar o cliente, tente novamente mais tarde!");
+                    Notificacao.Notificar($"Não foi possível cadastrar o cliente, tente novamente mais tarde!");
                     return;
                 }
             }

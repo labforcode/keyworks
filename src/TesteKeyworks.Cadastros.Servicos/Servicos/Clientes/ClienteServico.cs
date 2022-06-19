@@ -43,12 +43,12 @@ namespace TesteKeyworks.Cadastros.Servicos.Servicos.Clientes
 
         public Task<ClienteViewModel> ObterClienteAsync(int codigo)
         {
-            return Task.FromResult(_mapper.Map<ClienteViewModel>(_clienteRepositorio.ObterClienteAsync(codigo)));
+            return Task.FromResult(_mapper.Map<ClienteViewModel>(_clienteRepositorio.ObterClienteAsync(codigo).Result));
         }
 
         public Task<IEnumerable<ClienteViewModel>> ObterClientesAsync()
         {
-            return Task.FromResult(_mapper.Map<IEnumerable<ClienteViewModel>>(_clienteRepositorio.ObterClientesAsync()));
+            return Task.FromResult(_mapper.Map<IEnumerable<ClienteViewModel>>(_clienteRepositorio.ObterClientesAsync().Result));
         }
 
         public void Dispose()
