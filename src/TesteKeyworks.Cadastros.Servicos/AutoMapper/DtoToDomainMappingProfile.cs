@@ -11,7 +11,7 @@ namespace TesteKeyworks.Cadastros.Servicos.AutoMapper
             // Cliente
             CreateMap<ClienteDto, ComandoInsercaoCliente>();
             CreateMap<ClienteDto, ComandoAtualizacaoCliente>();
-            CreateMap<int, ComandoExclusaoCliente>();
+            CreateMap<ClienteDto, ComandoExclusaoCliente>();
         }
     }
 }

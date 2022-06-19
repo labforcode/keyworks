@@ -81,7 +81,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
             RuleFor(c => c)
                 .Custom((cliente, context) =>
                 {
-                    if (string.IsNullOrEmpty(cliente.DDI) || string.IsNullOrEmpty(cliente.DDD) || string.IsNullOrEmpty(cliente.Telefone))
+                    if (string.IsNullOrEmpty(cliente.DDI) || string.IsNullOrEmpty(cliente.Telefone))
                     {
                         var notificacao = $"O telefone deve conter DDI + DDD + Número.";
                         Notificacao.Notificar(notificacao);

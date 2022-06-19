@@ -14,7 +14,6 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
                                string responsavelNome,
                                string responsavelEmail,
                                string ddi,
-                               string ddd,
                                string telefone)
         {
             Codigo = codigo;
@@ -27,7 +26,6 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
             ResponsavelNome = responsavelNome;
             ResponsavelEmail = responsavelEmail;
             DDI = ddi;
-            DDD = ddd;
             Telefone = telefone;
         }
 

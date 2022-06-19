@@ -11,7 +11,7 @@ using TesteKeyworks.Cadastros.Infra.Dados.Contextos;
 namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
 {
     [DbContext(typeof(DbKeyworks))]
-    [Migration("20220619161551_development")]
+    [Migration("20220619225817_development")]
     partial class development
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,11 +45,6 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                     b.Property<int>("CodigoMaterial")
                         .HasColumnType("integer")
                         .HasColumnName("codigo_material");
-
-                    b.Property<string>("DDD")
-                        .IsRequired()
-                        .HasColumnType("varchar(3)")
-                        .HasColumnName("ddd");
 
                     b.Property<string>("DDI")
                         .IsRequired()

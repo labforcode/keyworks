@@ -35,9 +35,9 @@ namespace TesteKeyworks.Cadastros.Servicos.Servicos.Clientes
             _comandoHandlerCliente.Handler(comando);
         }
 
-        public void Excluir(int codigo)
+        public void Excluir(ClienteDto cliente)
         {
-            var comando = _mapper.Map<ComandoExclusaoCliente>(codigo);
+            var comando = _mapper.Map<ComandoExclusaoCliente>(cliente);
             _comandoHandlerCliente.Handler(comando);
         }
 

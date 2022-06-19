@@ -1,13 +1,15 @@
-﻿@{
+﻿@using TesteKeyworks.Cadastros.Servicos.ViewModels.Clientes
+@{
     Layout = "_Layout";
+    var clientes = ViewData["Clientes"] as IEnumerable<ClienteViewModel>;
 }
 
 <div class="page-wrapper" id="page-wrapper">
     <aside id="page-aside" class=" page-aside aside-fixed aside-folded">
         <div class="sidenav darkNav">
             <a href="index.html" class="app-logo d-flex flex flex-row align-items-center overflow-hidden justify-content-center">
-                <i class="icon-Paper-Plane inline-icon rounded avatar32 d-inline-flex align-items-center justify-content-center"></i>
-                <span class="logo-text d-inline-flex"> <span class='font700 d-inline-block mr-1'>ASSAN</span> UI</span>
+                <i class="icon-Cloud inline-icon rounded avatar32 d-inline-flex align-items-center justify-content-center"></i>
+                <span class="logo-text d-inline-flex"> <span class='font700 d-inline-block mr-1'></span>Teste</span>
             </a>
             <div class="flex">
                 <div class="aside-content slim-scroll">
@@ -63,11 +65,6 @@
                     </ul>
                 </div><!-- aside content end-->
             </div><!-- aside hidden scroll end-->
-            <div class="aside-footer p-3 pl-25">
-                <div class="">
-                    App Version - 1.0
-                </div>
-            </div><!-- aside footer end-->
         </div><!-- sidenav end-->
     </aside><!-- page-aside end-->
     <main class="content">
@@ -75,14 +72,30 @@
     <div class="page-subheader mb-30">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-md-7">
+                <div class="col-md-5">
                     <div class="list">
                         <div class="list-item pl-0">
                             <div class="list-body ml-0 mr-3 pr-3  b-r text-muted">
-                                <span class="list-title fs-1x"><i class="fa fa-arrow-left"></i></span>
-                                <span class="list-content">Volta</span>
+
+                                <span class="list-title fs-1x">
+                                    <a class="btn-icon-sm mr-2 mb-2" onclick="abrirModal()">
+                                        <i class="fa fa-user-plus"></i>
+                                    </a>
+                                </span>
                             </div>
                          </div>
+                    </div>
+                </div>
+                <div class="col-md-7 d-flex justify-content-end h-md-down">
+                    <div class="form-row">
+                        <div class="form-group col-md-10">
+                            <input id="search" type="text" class="form-control" placeholder="Pesquise por Código">
+                        </div>
+                        <div class="form-group col-md-2 mt-2">
+                            <a class="btn-icon-sm mr-2 mb-2" onclick="pesquisar()">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -106,16 +119,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var cliente in ViewBag.Clientes)
+                        @foreach (var cliente in clientes)
                         {
                              <tr>
                                 <td>
-                                    <a class="btn-icon-sm mr-2 mb-2">
+                                    <a class="btn-icon-sm mr-2 mb-2" onclick="atualizar(@cliente.Codigo)">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn-icon-sm mr-2 mb-2">
+                                    <a class="btn-icon-sm mr-2 mb-2" onclick="excluir(@cliente.Codigo)">
                                         <i class="fa fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -144,22 +157,159 @@
     </main><!-- page content end-->
 </div><!-- app's main wrapper end -->
 
+<div id="modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Clientes</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="col-lg-12">
+                <div class="portlet-box portlet-gutter ui-buttons-col mb-30">
+                    <div class="portlet-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-md-1">
+                                     <div class="customUi-switchToggle switchToggle-primary switchToggle-air">
+                                        <input type="checkbox" id="switch2">
+                                        <label for="switch2">
+                                            <span class="label-helper">Ativo</span>
+                                            <span class="label-switchToggle"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label>Código</label>
+                                    <input type="text" class="form-control" id="codigo" maxlength="14" disabled>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Razão Social</label>
+                                    <input type="text" class="form-control" id="razao-social">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>CNPJ</label>
+                                    <input type="text" class="form-control" id="cnpj">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label>Planta</label>
+                                    <select class="form-control mb-20" id="planta">
+                                        <option value="1">SUL</option>
+                                        <option value="2">NORTE</option>
+                                        <option value="3">LESTE</option>
+                                        <option value="4">OESTE</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Pessoa Responsável</label>
+                                    <input type="text" class="form-control" id="responsavel-nome">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Pessoa E-mail</label>
+                                    <input type="text" class="form-control" id="responsavel-email">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label>DDI</label>
+                                    <select class="form-control mb-20" id="ddi">
+                                        <option value="55" selected>+55</option>
+                                        <option value="27">+27</option>
+                                        <option value="93">+93</option>
+                                        <option value="355">+35</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label>Telefone</label>
+                                    <input type="text" class="form-control" id="telefone">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label>Tipo de Cliente</label>
+                                    <select class="form-control mb-20" id="tipo-cliente">
+                                        <option value="0" selected>Selecione</option>
+                                        <option value="1">Tipo 1</option>
+                                        <option value="2">Tipo 2</option>
+                                        <option value="3">Tipo 3</option>
+                                        <option value="4">Tipo 4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Tipo de Material</label>
+                                    <select class="form-control mb-20" id="tipo-material">
+                                        <option value="0" selected>Selecione</option>
+                                        <option value="1" >Aço</option>
+                                        <option value="2">Alumínio</option>
+                                        <option value="3">Ferro</option>
+                                        <option value="4">Magnésio</option>
+                                    </select>
+                                </div>
+                            </div>                           
+                        </form>
+                        <button type="submit" class="btn btn-rounded btn-primary" onclick="salvar()">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
 <script>
 
-    //async function obterClientes() {
-    //    fetch('~/Cliente/Index')
-    //        .then(response => { })
-    //        .catch(error => { })
-    //}
-
-
-    //window.onload = function() {
+    async function pesquisarCliente(codigo) {
         
-    //    console.log(await obterClientes());
+        return fetch('/Cliente/PesquisarCliente?pCodigo=' + codigo, { method: 'GET' })
+                .then(response => {
+                })
+                .catch(error => { });
+    }
 
+    function excluir(codigo) {
+        fetch('/Cliente/ExcluirCliente?codigo=' + codigo, { method: 'DELETE' })
+            .then(response => { })
+            .catch(error => { })
+    }
 
+    function pesquisar() {
+        let codigo = document.getElementById('search').value;
+        pesquisarCliente(codigo);
+    }
 
-    //}
+    function salvar() {
+        let cliente = 
+        {
+            ativo: $('#switch2').prop('checked'),
+            codigo:  0,
+            razaoSocial: $('#razao-social').val(),
+            cnpj: $('#cnpj').val(),
+            plantaId: $('#planta').val(),
+            responsavelNome: $('#responsavel-nome').val(),
+            responsavelEmail: $('#responsavel-email').val(),
+            ddi: $('#ddi').val(),
+            telefone: $('#telefone').val(),
+            tipoCliente: $('#tipo-cliente').val(),
+            codigoMaterial: $('#tipo-material').val()
+        };
 
+        fetch('/Cliente/CadastrarCliente', { method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}, body: JSON.stringify(cliente)})
+            .then(response => { 
+                $('#modal').modal('hide');
+            })
+            .catch(error => { })
+
+    }
+
+    async function atualizar(codigo) {
+        let response = await pesquisarCliente(codigo);
+        console.log(response)
+    }
+
+    function abrirModal() {
+        $('#modal').modal('show');
+    }
 
 </script>

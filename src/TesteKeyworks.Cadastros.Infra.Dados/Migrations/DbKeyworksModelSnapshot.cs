@@ -44,11 +44,6 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("codigo_material");
 
-                    b.Property<string>("DDD")
-                        .IsRequired()
-                        .HasColumnType("varchar(3)")
-                        .HasColumnName("ddd");
-
                     b.Property<string>("DDI")
                         .IsRequired()
                         .HasColumnType("varchar(2)")

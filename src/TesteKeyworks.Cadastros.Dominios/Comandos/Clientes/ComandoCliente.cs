@@ -1,9 +1,12 @@
 ﻿using TesteKeyworks.Cadastros.Dominios.Core.Comandos;
+using TesteKeyworks.Cadastros.Infra.Util;
 
 namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
 {
     public abstract class ComandoCliente : Comando
     {
+        private string _telefone;
+
         public int Codigo { get; protected set; }
 
         public string Cnpj { get; protected set; }
@@ -24,8 +27,10 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
 
         public string DDI { get; protected set; }
 
-        public string DDD { get; protected set; }
-
-        public string Telefone { get; protected set; }
+        public string Telefone
+        {
+            get => _telefone;
+            protected set => _telefone = StringUtil.DeixarApenasNumeros(StringUtil.RemoverEspaco(value));
+        }
     }
 }

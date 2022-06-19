@@ -43,7 +43,6 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
                                           comando.ResponsavelNome,
                                           comando.ResponsavelEmail,
                                           comando.DDI,
-                                          comando.DDD,
                                           comando.Telefone);
 
                 _clienteRepositorio.Atualizar(cliente);
@@ -108,7 +107,6 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes
                                           comando.ResponsavelNome,
                                           comando.ResponsavelEmail,
                                           comando.DDI,
-                                          comando.DDD,
                                           comando.Telefone);
 
                 _clienteRepositorio.Adicionar(cliente);

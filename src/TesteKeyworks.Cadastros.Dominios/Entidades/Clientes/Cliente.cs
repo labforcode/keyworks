@@ -12,7 +12,6 @@
                        string responsavelNome,
                        string responsavelEmail,
                        string ddi,
-                       string ddd,
                        string telefone)
         {
             Codigo = codigo;
@@ -25,7 +24,6 @@
             ResponsavelNome = responsavelNome;
             ResponsavelEmail = responsavelEmail;
             DDI = ddi;
-            DDD = ddd;
             Telefone = telefone;
         }
 
@@ -50,8 +48,6 @@
         public string ResponsavelEmail { get; private set; }
 
         public string DDI { get; private set; }
-
-        public string DDD { get; private set; }
 
         public string Telefone { get; private set; }
     }

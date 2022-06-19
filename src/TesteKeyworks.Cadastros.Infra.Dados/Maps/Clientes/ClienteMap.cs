@@ -56,11 +56,6 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.Clientes
                    .HasColumnType("varchar(2)")
                    .IsRequired();
 
-            builder.Property(c => c.DDD)
-                   .HasColumnName("ddd")
-                   .HasColumnType("varchar(3)")
-                   .IsRequired();
-
             builder.Property(c => c.Telefone)
                    .HasColumnName("telefone")
                    .HasColumnType("varchar(10)")
