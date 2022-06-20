@@ -20,6 +20,10 @@ A infraestrutura na parte de dados contém os repositórios e o contexto de banco 
 Já a camada de infraestrutura na parte de crosscutting contém as injeções de dependência;
 
 
+Caso a aplicação seja executada via VS, atentar para mudar o host do banco, no appsettings.development, para localhost. Caso exexute via container docker, então, não há necessidade de alterar.
+
+
+
 
 ## MIGRATION
 1 - Setar o projeto de Infra.Dados como principal a ser executado
