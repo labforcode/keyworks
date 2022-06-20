@@ -286,7 +286,7 @@
 
     function excluir(codigo) {
         fetch('/Cliente/ExcluirCliente?codigo=' + codigo, { method: 'DELETE' })
-            .then(response => { })
+            .then(response => { location.reload(); })
             .catch(error => { })
     }
 
