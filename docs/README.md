@@ -1,4 +1,26 @@
 
+## SOBRE
+
+Projeto escrito com .AspNet versão 6, para backend e páginas Razor para frontend.
+
+Sua divisão consiste em um projeto WebApp com o código HTML/CSS, criado um base em um template.
+
+Já a parte de backend, possui a estruturação em camadas, em que se aplicou alguns dos conceitos de DDD, como o contexto delimitado e linguagem ubíqua.
+
+As camadas são Serviços, Domínio, Core, Infra-Data e Infra-CrossCutting;
+
+Na camada de domínio, para o contexto de Cadastros, há a entidade Cliente que norteia o cadastro e a atualização, conforme especificado para a tela.
+
+A camada de domínio Core contém o código de suporte para o Domínio;
+
+A Cadama de serviço estabelece 'comunicação' entre a Controller e o Domínio;
+
+A infraestrutura na parte de dados contém os repositórios e o contexto de banco de dados, onde se aplicou o Code First, com Migration;
+
+Já a camada de infraestrutura na parte de crosscutting contém as injeções de dependência;
+
+
+
 ## MIGRATION
 1 - Setar o projeto de Infra.Dados como principal a ser executado
 
@@ -23,4 +45,10 @@ docker volume create pg-keyworks
 ## Executar o container do Postgres para o WebApp Keyworks
 docker run -ti --network=dev-local --ip 172.18.0.176 -p 5432:5432 --name pg-keyworks -e "POSTGRES_PASSWORD=123456" -v /var/lib/docker/volumes/pg-keyworks/_data:/var/lib/postgresql/data -d postgres
 
+
+## Docker Development
+docker build -t keyworks/clientes -f src/TesteKeyworks.WebApp.MVC/Dockerfile .
+docker push keyworks/clientes
+docker pull keyworks/clientes
+docker run -ti --network=dev-local --ip 172.18.0.56 --name keyworks-clientes -d -e ASPNETCORE_ENVIRONMENT=Development -p 3500:80 --rm keyworks/clientes
 
