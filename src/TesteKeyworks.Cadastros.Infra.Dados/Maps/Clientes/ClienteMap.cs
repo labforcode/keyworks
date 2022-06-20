@@ -41,36 +41,25 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Maps.Clientes
                    .HasColumnName("codigo_material")
                    .IsRequired();
 
-            builder.OwnsOne(c => c.Responsavel, r =>
-            {
-                r.Property(c => c.Nome)
-                 .HasColumnName("responsavel_nome")
-                 .HasColumnType("varchar(140)")
-                 .IsRequired();
+            builder.Property(c => c.ResponsavelNome)
+             .HasColumnName("responsavel_nome")
+             .HasColumnType("varchar(140)")
+             .IsRequired();
 
-                r.Property(c => c.Email)
-                 .HasColumnName("responsavel_email")
-                 .HasColumnType("varchar(80)")
-                 .IsRequired();
-            });
+            builder.Property(c => c.ResponsavelEmail)
+             .HasColumnName("responsavel_email")
+             .HasColumnType("varchar(80)")
+             .IsRequired();
 
-            builder.OwnsOne(c => c.Telefone, t =>
-            {
-                t.Property(c => c.DDI)
-                       .HasColumnName("telefone_ddi")
-                       .HasColumnType("varchar(2)")
-                       .IsRequired();
+            builder.Property(c => c.DDI)
+                   .HasColumnName("ddi")
+                   .HasColumnType("varchar(2)")
+                   .IsRequired();
 
-                t.Property(c => c.DDD)
-                       .HasColumnName("telefone_ddd")
-                       .HasColumnType("varchar(3)")
-                       .IsRequired();
-
-                t.Property(c => c.Numero)
-                       .HasColumnName("telefone_numero")
-                       .HasColumnType("varchar(10)")
-                       .IsRequired();
-            });
+            builder.Property(c => c.Telefone)
+                   .HasColumnName("telefone")
+                   .HasColumnType("varchar(10)")
+                   .IsRequired();
         }
     }
 }

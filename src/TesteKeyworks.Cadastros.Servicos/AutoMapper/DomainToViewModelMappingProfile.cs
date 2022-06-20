@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using TesteKeyworks.Cadastros.Dominios.Entidades.Clientes;
+using TesteKeyworks.Cadastros.Servicos.ViewModels.Clientes;
 
 namespace TesteKeyworks.Cadastros.Servicos.AutoMapper
 {
@@ -6,8 +8,7 @@ namespace TesteKeyworks.Cadastros.Servicos.AutoMapper
     {
         public DomainToViewModelMappingProfile()
         {
-            //CreateMap<Administrador, AdministradorViewModel>();
-
+            CreateMap<Cliente, ClienteViewModel>();
         }
     }
 }

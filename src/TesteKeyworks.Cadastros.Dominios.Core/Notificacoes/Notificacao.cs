@@ -4,7 +4,7 @@
     {
         private static List<string> _notificacoes { get; set; }
 
-        public static void RegistrarNotificacao(string mensagem)
+        public static void Notificar(string mensagem)
         {
             _notificacoes = new List<string> { mensagem };
         }

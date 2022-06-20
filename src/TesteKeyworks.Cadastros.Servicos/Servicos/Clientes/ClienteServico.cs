@@ -35,20 +35,20 @@ namespace TesteKeyworks.Cadastros.Servicos.Servicos.Clientes
             _comandoHandlerCliente.Handler(comando);
         }
 
-        public void Excluir(int codigo)
+        public void Excluir(ClienteDto cliente)
         {
-            var comando = _mapper.Map<ComandoExclusaoCliente>(codigo);
+            var comando = _mapper.Map<ComandoExclusaoCliente>(cliente);
             _comandoHandlerCliente.Handler(comando);
         }
 
         public Task<ClienteViewModel> ObterClienteAsync(int codigo)
         {
-            return Task.FromResult(_mapper.Map<ClienteViewModel>(_clienteRepositorio.ObterClienteAsync(codigo)));
+            return Task.FromResult(_mapper.Map<ClienteViewModel>(_clienteRepositorio.ObterClienteAsync(codigo).Result));
         }
 
         public Task<IEnumerable<ClienteViewModel>> ObterClientesAsync()
         {
-            return Task.FromResult(_mapper.Map<IEnumerable<ClienteViewModel>>(_clienteRepositorio.ObterClientesAsync()));
+            return Task.FromResult(_mapper.Map<IEnumerable<ClienteViewModel>>(_clienteRepositorio.ObterClientesAsync().Result));
         }
 
         public void Dispose()

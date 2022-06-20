@@ -16,9 +16,8 @@ namespace TesteKeyworks.Cadastros.Infra.Dados.Repositorios.Clientes
                                                   c.tipo_cliente      AS TipoCliente,
                                                   c.responsavel_nome  AS ResponsavelNome,
                                                   c.responsavel_email AS ResponsavelEmail,
-                                                  c.telefone_ddi      AS TelefoneDDI,
-                                                  c.telefone_ddd      AS TelefoneDDD,
-                                                  c.telefone_numero   AS TelefoneNumero,
+                                                  c.ddi               AS DDI,
+                                                  c.telefone          AS Telefone,
                                                   c.codigo_material   AS CodigoMaterial  
                                            FROM clientes AS c ";
 

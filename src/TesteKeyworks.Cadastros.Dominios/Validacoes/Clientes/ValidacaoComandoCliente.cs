@@ -14,7 +14,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                     if (codigo <= 0)
                     {
                         var notificacao = @"Código do cliente não informado.";
-                        Notificacao.RegistrarNotificacao(notificacao);
+                        Notificacao.Notificar(notificacao);
                         context.AddFailure(notificacao);
                     }
                 });
@@ -28,7 +28,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                     if (string.IsNullOrEmpty(cnpj))
                     {
                         var notificacao = $"CNPJ inválido.";
-                        Notificacao.RegistrarNotificacao(notificacao);
+                        Notificacao.Notificar(notificacao);
                         context.AddFailure(notificacao);
                     }
                 });
@@ -42,7 +42,7 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
                     if (string.IsNullOrEmpty(razaoSocial))
                     {
                         var notificacao = $"Razão Social não preenchida.";
-                        Notificacao.RegistrarNotificacao(notificacao);
+                        Notificacao.Notificar(notificacao);
                         context.AddFailure(notificacao);
                     }
                 });
@@ -50,13 +50,13 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
 
         public void ValidarNomeResponsavel()
         {
-            RuleFor(c => c.Responsavel.Nome)
+            RuleFor(c => c.ResponsavelNome)
                 .Custom((nome, context) =>
                 {
                     if (string.IsNullOrEmpty(nome))
                     {
                         var notificacao = $"É necessário informar um nome para o Responsável.";
-                        Notificacao.RegistrarNotificacao(notificacao);
+                        Notificacao.Notificar(notificacao);
                         context.AddFailure(notificacao);
                     }
                 });
@@ -64,13 +64,13 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
 
         public void ValidarTelefoneResponsavel()
         {
-            RuleFor(c => c.Responsavel.Email)
+            RuleFor(c => c.ResponsavelEmail)
                 .Custom((email, context) =>
                 {
                     if (string.IsNullOrEmpty(email))
                     {
                         var notificacao = $"É necessário informar um e-mail para o Responsável.";
-                        Notificacao.RegistrarNotificacao(notificacao);
+                        Notificacao.Notificar(notificacao);
                         context.AddFailure(notificacao);
                     }
                 });
@@ -78,13 +78,13 @@ namespace TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes
 
         public void ValidarTelefone()
         {
-            RuleFor(c => c.Telefone)
-                .Custom((telefone, context) =>
+            RuleFor(c => c)
+                .Custom((cliente, context) =>
                 {
-                    if (string.IsNullOrEmpty(telefone.DDI) || string.IsNullOrEmpty(telefone.DDD) || string.IsNullOrEmpty(telefone.Numero))
+                    if (string.IsNullOrEmpty(cliente.DDI) || string.IsNullOrEmpty(cliente.Telefone))
                     {
                         var notificacao = $"O telefone deve conter DDI + DDD + Número.";
-                        Notificacao.RegistrarNotificacao(notificacao);
+                        Notificacao.Notificar(notificacao);
                         context.AddFailure(notificacao);
                     }
                 });

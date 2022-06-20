@@ -1,6 +1,4 @@
 ﻿using TesteKeyworks.Cadastros.Dominios.Validacoes.Clientes.Acoes;
-using TesteKeyworks.Cadastros.Dominios.ValueObjects.Responsaveis;
-using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
 
 namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
 {
@@ -13,8 +11,10 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
                                int plantaId,
                                int tipoCliente,
                                int codigoMaterial,
-                               Responsavel responsavel,
-                               Telefone telefone)
+                               string responsavelNome,
+                               string responsavelEmail,
+                               string ddi,
+                               string telefone)
         {
             Codigo = codigo;
             Cnpj = cnpj;
@@ -22,8 +22,10 @@ namespace TesteKeyworks.Cadastros.Dominios.Comandos.Clientes.Acoes
             Ativo = ativo;
             PlantaId = plantaId;
             CodigoMaterial = codigoMaterial;
-            Responsavel = responsavel;
             TipoCliente = tipoCliente;
+            ResponsavelNome = responsavelNome;
+            ResponsavelEmail = responsavelEmail;
+            DDI = ddi;
             Telefone = telefone;
         }
 

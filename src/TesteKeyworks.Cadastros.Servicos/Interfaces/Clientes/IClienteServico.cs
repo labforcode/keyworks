@@ -20,8 +20,8 @@ namespace TesteKeyworks.Cadastros.Servicos.Interfaces.Clientes
         /// <summary>
         /// Exclui um cliente
         /// </summary>
-        /// <param name="codigo"></param>
-        void Excluir(int codigo);
+        /// <param name="cliente"></param>
+        void Excluir(ClienteDto cliente);
 
         /// <summary>
         /// Retorna um cliente por seu ID

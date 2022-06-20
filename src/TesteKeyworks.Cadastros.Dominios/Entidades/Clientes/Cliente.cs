@@ -1,7 +1,4 @@
-﻿using TesteKeyworks.Cadastros.Dominios.ValueObjects.Responsaveis;
-using TesteKeyworks.Cadastros.Dominios.ValueObjects.Telefones;
-
-namespace TesteKeyworks.Cadastros.Dominios.Entidades.Clientes
+﻿namespace TesteKeyworks.Cadastros.Dominios.Entidades.Clientes
 {
     public class Cliente
     {
@@ -12,8 +9,10 @@ namespace TesteKeyworks.Cadastros.Dominios.Entidades.Clientes
                        int plantaId,
                        int tipoCliente,
                        int codigoMaterial,
-                       Responsavel responsavel,
-                       Telefone telefone)
+                       string responsavelNome,
+                       string responsavelEmail,
+                       string ddi,
+                       string telefone)
         {
             Codigo = codigo;
             Cnpj = cnpj;
@@ -22,7 +21,9 @@ namespace TesteKeyworks.Cadastros.Dominios.Entidades.Clientes
             PlantaId = plantaId;
             TipoCliente = tipoCliente;
             CodigoMaterial = codigoMaterial;
-            Responsavel = responsavel;
+            ResponsavelNome = responsavelNome;
+            ResponsavelEmail = responsavelEmail;
+            DDI = ddi;
             Telefone = telefone;
         }
 
@@ -42,8 +43,12 @@ namespace TesteKeyworks.Cadastros.Dominios.Entidades.Clientes
 
         public int CodigoMaterial { get; private set; }
 
-        public Responsavel Responsavel { get; private set; }
+        public string ResponsavelNome { get; private set; }
 
-        public Telefone Telefone { get; private set; }
+        public string ResponsavelEmail { get; private set; }
+
+        public string DDI { get; private set; }
+
+        public string Telefone { get; private set; }
     }
 }
