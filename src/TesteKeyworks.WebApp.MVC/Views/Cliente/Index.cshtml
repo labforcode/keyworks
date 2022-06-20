@@ -78,7 +78,7 @@
                             <div class="list-body ml-0 mr-3 pr-3  b-r text-muted">
 
                                 <span class="list-title fs-1x">
-                                    <a class="btn-icon-sm mr-2 mb-2" onclick="abrirModal()">
+                                    <a class="btn-icon-sm mr-2 mb-2" onclick="abrirModalCadastro()">
                                         <i class="fa fa-user-plus"></i>
                                     </a>
                                 </span>
@@ -123,7 +123,7 @@
                         {
                              <tr>
                                 <td>
-                                    <a class="btn-icon-sm mr-2 mb-2" onclick="atualizar(@cliente.Codigo)">
+                                    <a class="btn-icon-sm mr-2 mb-2" onclick="abrirModalAtualizacao(@cliente.Codigo)">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
@@ -174,7 +174,7 @@
                             <div class="form-row">
                                 <div class="col-md-1">
                                      <div class="customUi-switchToggle switchToggle-primary switchToggle-air">
-                                        <input type="checkbox" id="switch2">
+                                        <input type="checkbox" checked id="switch2">
                                         <label for="switch2">
                                             <span class="label-helper">Ativo</span>
                                             <span class="label-switchToggle"></span>
@@ -260,11 +260,27 @@
 
 <script>
 
+    function limparFormularioCadastroCliente() {
+        $('#switch2').prop('checked', true);
+        $('#codigo').val('');
+        $('#razao-social').val('');
+        $('#cnpj').val('');
+        $('#planta').val(0);
+        $('#responsavel-nome').val('');
+        $('#responsavel-email').val('');
+        $('#ddi').val(55);
+        $('#telefone').val('');
+        $('#tipo-cliente').val(0);
+        $('#tipo-material').val(0);
+    }
+
     async function pesquisarCliente(codigo) {
         
         return fetch('/Cliente/PesquisarCliente?pCodigo=' + codigo, { method: 'GET' })
                 .then(response => {
-                })
+
+                    return response.json();
+                 })
                 .catch(error => { });
     }
 
@@ -274,16 +290,16 @@
             .catch(error => { })
     }
 
-    function pesquisar() {
+    async function pesquisar() {
         let codigo = document.getElementById('search').value;
-        pesquisarCliente(codigo);
+        let cliente = await pesquisarCliente(codigo);
     }
 
     function salvar() {
         let cliente = 
         {
             ativo: $('#switch2').prop('checked'),
-            codigo:  0,
+            codigo: $('#codigo').val() == '' ? 0 : $('#codigo').val(),
             razaoSocial: $('#razao-social').val(),
             cnpj: $('#cnpj').val(),
             plantaId: $('#planta').val(),
@@ -295,20 +311,41 @@
             codigoMaterial: $('#tipo-material').val()
         };
 
-        fetch('/Cliente/CadastrarCliente', { method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}, body: JSON.stringify(cliente)})
-            .then(response => { 
+        let uri = '/Cliente/CadastrarCliente';
+        let verbo = 'POST'
+        if (cliente.codigo != 0) {
+            uri = '/Cliente/AtualizarCliente';
+            method = 'PUT'
+        }
+
+        fetch(uri, { method: verbo, headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(cliente) })
+            .then(response => {
+                limparFormularioCadastroCliente();
                 $('#modal').modal('hide');
+                location.reload();
             })
-            .catch(error => { })
-
+            .catch(error => { });
     }
 
-    async function atualizar(codigo) {
-        let response = await pesquisarCliente(codigo);
-        console.log(response)
+   async function abrirModalAtualizacao(codigo) {
+      let response = await pesquisarCliente(codigo);
+      let cliente = response[0];
+      console.log(cliente)
+      $('#switch2').prop('checked', cliente.ativo);
+      $('#codigo').val(cliente.codigo);
+      $('#razao-social').val(cliente.razaoSocial);
+      $('#cnpj').val(cliente.cnpj);
+      $('#planta').val(cliente.plantaId);
+      $('#responsavel-nome').val(cliente.responsavelNome);
+      $('#responsavel-email').val(cliente.responsavelEmail);
+      $('#ddi').val(cliente.ddi);
+      $('#telefone').val(cliente.telefone);
+      $('#tipo-cliente').val(cliente.tipoCliente);
+      $('#tipo-material').val(cliente.codigoMaterial);
+      $('#modal').modal('show');       
     }
 
-    function abrirModal() {
+    function abrirModalCadastro() {
         $('#modal').modal('show');
     }
 

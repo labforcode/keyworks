@@ -52,7 +52,7 @@ namespace TesteKeyworks.WebApp.MVC.Controllers
         [HttpPost]
         public IActionResult AtualizarCliente([FromBody] ClienteDto cliente)
         {
-
+            _clienteServico.Atualizar(cliente);
 
             return Ok();
         }
